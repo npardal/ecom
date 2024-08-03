@@ -8,9 +8,11 @@ dotenv.config({ path: "backend/config/config.env" });
 // Connecting to database
 connectDatabase();
 
+app.use(express.json()); 
+
 // Import all routes
 import productRoutes from "./routes/products.js";
-
+    
 app.use("/api", productRoutes);
 
 app.listen(process.env.PORT, () => {
